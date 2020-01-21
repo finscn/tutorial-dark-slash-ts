@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "3126a78c-c764-4f1f-aa5b-849b133d59f3",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 116,
+  "height": 106,
   "platformSettings": {},
   "subMetas": {
     "home_btn_veewo": {

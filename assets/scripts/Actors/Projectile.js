@@ -21,7 +21,8 @@ cc.Class({
         let rad = Math.atan2(dir.y, dir.x);
         let deg = cc.misc.radiansToDegrees(rad);
         let rotation = 90-deg;
-        this.sprite.node.rotation = rotation;
+        // this.sprite.node.rotation = rotation;
+        this.sprite.node.angle = -rotation;
         this.sprite.enabled = true;
         this.direction = dir.normalize();
         this.isMoving = true;

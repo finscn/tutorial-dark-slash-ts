@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "673dc161-c222-4dd6-b584-9a72581d2e95",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 320,
+  "height": 122,
   "platformSettings": {},
   "subMetas": {
     "death_btn_save": {

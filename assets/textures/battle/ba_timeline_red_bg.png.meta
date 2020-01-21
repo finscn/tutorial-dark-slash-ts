@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "1afa1105-398e-40f3-b6f2-4409a0223ad6",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 408,
+  "height": 26,
   "platformSettings": {},
   "subMetas": {
     "ba_timeline_red_bg": {

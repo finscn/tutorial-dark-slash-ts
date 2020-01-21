@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "91891bbb-0030-4300-9afd-e40d3dbf3b50",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 271,
+  "height": 110,
   "platformSettings": {},
   "subMetas": {
     "death_title_bg": {

@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "37e8615f-e658-4fa2-9459-8f3d9a150cba",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 178,
+  "height": 50,
   "platformSettings": {},
   "subMetas": {
     "ba_wave_txt": {

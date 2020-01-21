@@ -20,13 +20,14 @@ cc.Class({
 
     // use this for initialization
     init (game) {
+        console.log("init");
         this.game = game;
         this.anim = this.getComponent('Move').anim;
         this.inputEnabled = false;
         this.isAttacking = false;
         this.isAlive = true;
         this.nextPoseSF = null;
-        this.registerInput();
+        // this.registerInput();
         this.spArrow.active = false;
         this.atkTargetPos = cc.v2(0,0);
         this.isAtkGoingOut = false;
@@ -34,60 +35,67 @@ cc.Class({
         this.oneSlashKills = 0;
     },
 
+    onLoad(){
+        console.log("onLoad");
+        this.registerInput();
+    },
+
     registerInput () {
         var self = this;
+        var foeGroup = this.node.parent;
+
         // touch input
-        cc.eventManager.addListener({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            onTouchBegan: function(touch, event) {
-                if (self.inputEnabled === false) {
-                    return true;
-                }
-                var touchLoc = touch.getLocation();
-                self.touchBeganLoc = touchLoc;
-                self.moveToPos = self.node.parent.convertToNodeSpaceAR(touchLoc);
-                self.touchStartTime = Date.now();
-                return true; // don't capture event
-            },
-            onTouchMoved: function(touch, event) {
-                if (self.inputEnabled === false) {
-                    return;
-                }
-                var touchLoc = touch.getLocation();
-                self.spArrow.active = true;
-                self.moveToPos = self.node.parent.convertToNodeSpaceAR(touchLoc);
-                if (self.touchBeganLoc.sub(touchLoc).mag() > self.touchMoveThreshold) {
-                    self.hasMoved = true;
-                }
-            },
-            onTouchEnded: function(touch, event) {
-                if (self.inputEnabled === false) {
-                    return;
-                }
-                self.spArrow.active = false;
-                self.moveToPos = null;
-                self.node.emit('update-dir', {
-                    dir: null
-                });
-                let isHold = self.isTouchHold();
-                if (!self.hasMoved && !isHold) {
-                    var touchLoc = touch.getLocation();
-                    let atkPos = self.node.parent.convertToNodeSpaceAR(touchLoc);
-                    let atkDir = atkPos.sub(self.node.position);
-                    self.atkTargetPos = self.node.position.add( atkDir.normalize().mul(self.atkDist) );
-                    let atkPosWorld = self.node.parent.convertToWorldSpaceAR(self.atkTargetPos);
-                    if (!self.validAtkRect.contains(atkPosWorld)) {
-                        self.isAtkGoingOut = true;
-                    } else {
-                        self.isAtkGoingOut = false;
-                    }
-                    self.node.emit('freeze');
-                    self.oneSlashKills = 0;
-                    self.attackOnTarget(atkDir, self.atkTargetPos);
-                }
-                self.hasMoved = false;
+
+        foeGroup.on(cc.Node.EventType.TOUCH_START, function (event) {
+            if (self.inputEnabled === false) {
+                return true;
             }
-        }, self.node);
+            var touchLoc = event.getLocation();
+            self.touchBeganLoc = touchLoc;
+            self.moveToPos = foeGroup.convertToNodeSpaceAR(touchLoc);
+            self.touchStartTime = Date.now();
+            // return true; // don't capture event
+        }, null, false);
+
+        foeGroup.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
+            if (self.inputEnabled === false) {
+                return;
+            }
+            var touchLoc = event.getLocation();
+            self.spArrow.active = true;
+            self.moveToPos = foeGroup.convertToNodeSpaceAR(touchLoc);
+            if (self.touchBeganLoc.sub(touchLoc).mag() > self.touchMoveThreshold) {
+                self.hasMoved = true;
+            }
+        });
+
+        foeGroup.on(cc.Node.EventType.TOUCH_END, function (event) {
+            if (self.inputEnabled === false) {
+                return;
+            }
+            self.spArrow.active = false;
+            self.moveToPos = null;
+            self.node.emit('update-dir', {
+                dir: null
+            });
+            let isHold = self.isTouchHold();
+            if (!self.hasMoved && !isHold) {
+                var touchLoc = event.getLocation();
+                let atkPos = foeGroup.convertToNodeSpaceAR(touchLoc);
+                let atkDir = atkPos.sub(self.node.position);
+                self.atkTargetPos = self.node.position.add(atkDir.normalize().mul(self.atkDist));
+                let atkPosWorld = foeGroup.convertToWorldSpaceAR(self.atkTargetPos);
+                if (!self.validAtkRect.contains(atkPosWorld)) {
+                    self.isAtkGoingOut = true;
+                } else {
+                    self.isAtkGoingOut = false;
+                }
+                self.node.emit('freeze');
+                self.oneSlashKills = 0;
+                self.attackOnTarget(atkDir, self.atkTargetPos);
+            }
+            self.hasMoved = false;
+        });
 
         // // keyboard input
         // cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, function onKeyDown (event) {
@@ -160,7 +168,8 @@ cc.Class({
         let callback = cc.callFunc(this.onAtkFinished, this);
         this.node.runAction(cc.sequence(moveAction, delay, callback));
         this.spSlash.node.position = slashPos;
-        this.spSlash.node.rotation = mag;
+        // this.spSlash.node.rotation = mag;
+        this.spSlash.node.angle = -mag;
         this.spSlash.enabled = true;
         this.spSlash.getComponent(cc.Animation).play('slash');
         this.inputEnabled = false;
@@ -179,7 +188,7 @@ cc.Class({
             this.game.inGameUI.showKills(this.oneSlashKills);
         }
     },
-    
+
     addKills () {
         this.oneSlashKills++;
         this.game.inGameUI.addCombo();
@@ -209,7 +218,7 @@ cc.Class({
     death () {
         this.game.death();
     },
-    
+
     shouldStopAttacking () {
         let curWorldPos = this.node.parent.convertToWorldSpaceAR(this.node.position);
         let targetWorldPos = this.node.parent.convertToWorldSpaceAR(this.atkTargetPos);
@@ -217,7 +226,7 @@ cc.Class({
             (curWorldPos.x > this.validAtkRect.xMax && targetWorldPos.x > this.validAtkRect.xMax) ||
             (curWorldPos.y < this.validAtkRect.yMin && targetWorldPos.y < this.validAtkRect.yMin) ||
             (curWorldPos.y > this.validAtkRect.yMax && targetWorldPos.y > this.validAtkRect.yMax)  ) {
-            return true;        
+            return true;
         } else {
             return false;
         }
@@ -239,7 +248,8 @@ cc.Class({
             let dir = this.moveToPos.sub(this.node.position);
             let rad = Math.atan2(dir.y, dir.x);
             let deg = cc.misc.radiansToDegrees(rad);
-            this.spArrow.rotation = 90-deg;
+            // this.spArrow.rotation = 90-deg;
+            this.spArrow.angle = deg-90;
             this.node.emit('update-dir', {
                 dir: dir.normalize()
             });

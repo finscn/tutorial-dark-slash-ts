@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "6ab913ac-45ec-473e-a420-79c7cc4250dd",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 244,
+  "height": 104,
   "platformSettings": {},
   "subMetas": {
     "ba_kills_bg": {

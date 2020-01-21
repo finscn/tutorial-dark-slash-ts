@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "b3687048-18a5-4efa-a771-f190e0047c72",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 607,
+  "height": 28,
   "platformSettings": {},
   "subMetas": {
     "homr_logo_blade": {

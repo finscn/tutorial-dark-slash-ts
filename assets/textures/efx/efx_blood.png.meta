@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "8e519fc6-a0a7-47f9-a1ee-465697cea47a",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 12,
+  "height": 12,
   "platformSettings": {},
   "subMetas": {
     "efx_blood": {

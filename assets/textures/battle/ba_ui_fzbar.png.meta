@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "b62c9cb3-88d6-4909-8097-882904682a0b",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 118,
+  "height": 16,
   "platformSettings": {},
   "subMetas": {
     "ba_ui_fzbar": {

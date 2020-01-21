@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "35058389-5545-4729-8d42-77e531dd782e",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 12,
+  "height": 12,
   "platformSettings": {},
   "subMetas": {
     "efx_pixel_dot": {

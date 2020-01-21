@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "53081315-9d83-4466-9750-842aad13ec78",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 1136,
+  "height": 357,
   "platformSettings": {},
   "subMetas": {
     "home_bg_dark_bot": {

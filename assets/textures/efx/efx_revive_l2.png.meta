@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "375032fe-47a7-41ba-8d8e-47ea02900c29",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 20,
+  "height": 264,
   "platformSettings": {},
   "subMetas": {
     "efx_revive_l2": {

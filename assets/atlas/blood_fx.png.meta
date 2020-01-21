@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "2f5edd67-a375-4555-bc24-9969b82d264d",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 340,
+  "height": 1016,
   "platformSettings": {},
   "subMetas": {
     "blood_fx": {

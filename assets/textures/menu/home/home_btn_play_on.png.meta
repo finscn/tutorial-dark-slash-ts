@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "6aeee4fa-c891-4039-85d1-66c5c91198c5",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 284,
+  "height": 122,
   "platformSettings": {},
   "subMetas": {
     "home_btn_play_on": {

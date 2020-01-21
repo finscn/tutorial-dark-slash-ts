@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "da7e4ec1-b6bb-48a2-b4a5-be0b376c7a2c",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 88,
+  "height": 152,
   "platformSettings": {},
   "subMetas": {
     "home_c_zombie_3": {
